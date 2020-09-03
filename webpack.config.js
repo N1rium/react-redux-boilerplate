@@ -7,14 +7,13 @@ const htmlPlugin = new HtmlWebPackPlugin({
   filename: './index.html',
 });
 
-const copyPlugin = new CopyWebpackPlugin([{ from: 'src/assets', to: 'src/assets' }]);
+const copyPlugin = new CopyWebpackPlugin({ patterns: [{ from: 'src/assets', to: 'src/assets' }] });
 
-module.exports = args => {
-  const { env = 'dev' } = args;
+module.exports = () => {
   let plugins = [htmlPlugin, copyPlugin];
 
   return {
-    devtool: env === 'prod' ? false : 'source-map',
+    devtool: 'source-map',
     module: {
       rules: [
         {
