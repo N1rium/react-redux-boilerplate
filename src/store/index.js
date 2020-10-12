@@ -3,15 +3,14 @@ import reducerRegistry from './reducerRegistry';
 
 // Middlewares
 import log from './middleware/log';
-import monitor from './middleware/monitor';
 
 const initialState = {};
 
-const combine = reducers => {
+const combine = (reducers) => {
   const reducerNames = Object.keys(reducers);
   const newReducers = reducers;
 
-  Object.keys(initialState).forEach(item => {
+  Object.keys(initialState).forEach((item) => {
     if (reducerNames.indexOf(item) === -1) {
       newReducers[item] = (state = null) => state;
     }
@@ -24,16 +23,13 @@ const reducer = combine(reducerRegistry.getReducers());
 
 const middlewareEnchancer = applyMiddleware(log);
 
-const composedEnhancers = compose(
-  middlewareEnchancer,
-  monitor
-);
+const composedEnhancers = compose(middlewareEnchancer);
 
 const store = {
   ...createStore(reducer, composedEnhancers),
 };
 
-reducerRegistry.setChangeListener(reducers => {
+reducerRegistry.setChangeListener((reducers) => {
   store.replaceReducer(combine(reducers));
 });
 
