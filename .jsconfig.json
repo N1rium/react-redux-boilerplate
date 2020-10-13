@@ -1,0 +1,21 @@
+{
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES6",
+    "sourceMap": true,
+    "inlineSources": true,
+    "jsx": "react",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "src",
+    "paths": {
+      "Assets/*": ["./assets/*"],
+      "Components/*": ["./components/*"],
+      "Containers/*": ["./containers/*"],
+      "Store/*": ["./store/*"],
+      "Util/*": ["./util/*"]
+    }
+  }
+}
