@@ -1,12 +1,11 @@
 import React from 'react';
-import store from 'store';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import HomeContainer from 'containers/home';
+import HomeContainer from 'Containers/home';
 
 // const getUser = () => store.getState().auth.user;
 
-const PrivateRoute = props => {
+const PrivateRoute = (props) => {
   // if (!getUser()) {
   //   return <Redirect to={`/authlanding?path=${window.location.pathname}`} />;
   // }

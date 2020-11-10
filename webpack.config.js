@@ -17,7 +17,7 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           exclude: /(node_modules|bower_components)/,
           use: {
             loader: 'babel-loader',
@@ -56,6 +56,7 @@ module.exports = () => {
     },
     plugins: plugins,
     resolve: {
+      extensions: ['.js', '.jsx'],
       alias: {
         Assets: path.resolve(__dirname, 'src/assets'),
         Components: path.resolve(__dirname, 'src/components'),
